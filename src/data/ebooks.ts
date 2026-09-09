@@ -27,6 +27,15 @@ export type Ebook = {
    * Enquanto estiver "#", o botão de compra fica desabilitado no card.
    */
   kiwifyUrl: string;
+  /**
+   * Skill/agente que acompanha o ebook — arquivo .md pronto pra instalar
+   * no Claude Code, Codex ou qualquer assistente de IA que leia instruções
+   * customizadas. Não é obrigatório em todos os produtos.
+   */
+  skillIncluded?: {
+    name: string;
+    description: string;
+  };
 };
 
 export const ebooks: Ebook[] = [
@@ -62,6 +71,11 @@ export const ebooks: Ebook[] = [
       { q: "Em quanto tempo consigo o primeiro cliente?", a: "O plano de execução é desenhado para 7 dias, do zero até a primeira mensagem de prospecção." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "primeira-oferta-express",
+      description:
+        "Faz a IA te ajudar a montar uma oferta simples e a mensagem de primeira abordagem em minutos, seguindo os 7 passos do ebook.",
+    },
   },
   {
     slug: "trafego-e-atencao",
@@ -90,6 +104,11 @@ export const ebooks: Ebook[] = [
       { q: "Serve para negócio local ou só digital?", a: "Os dois. Há exemplos práticos para negócio físico e para operação 100% online." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "mapa-de-trafego",
+      description:
+        "Diagnostica qual canal (pago, orgânico, redes, e-mail/WhatsApp) faz mais sentido pro seu momento e gera um plano de ação da semana.",
+    },
   },
   {
     slug: "copy-marca-design",
@@ -117,6 +136,11 @@ export const ebooks: Ebook[] = [
       { q: "Preciso ser designer para aplicar?", a: "Não — o livro ensina os princípios, não ferramentas. Dá pra aplicar em qualquer editor ou até briefando um freelancer." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "copy-que-converte",
+      description:
+        "Aplica a fórmula 4U, a Equação de Valor e ancoragem de valor pra reescrever headline, oferta e resposta a objeções.",
+    },
   },
   {
     slug: "vendas-funis",
@@ -142,6 +166,11 @@ export const ebooks: Ebook[] = [
       { q: "Funciona para venda por WhatsApp/direct?", a: "Sim, boa parte dos exemplos são de conversa 1 a 1, o canal mais comum no Brasil." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "funil-de-vendas-diagnostico",
+      description:
+        "Mapeia em que etapa do funil um cliente está travado e sugere a próxima mensagem/ação certa pra destravar a venda.",
+    },
   },
   {
     slug: "produtos-digitais-ia",
@@ -169,6 +198,11 @@ export const ebooks: Ebook[] = [
       { q: "Preciso saber programar?", a: "Ajuda, mas não é obrigatório — o livro cobre como usar IA e ferramentas no-code/low-code para reduzir essa barreira." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "arquiteto-de-produto-ia",
+      description:
+        "Guia técnico de decisão: prompt engineering vs. RAG vs. fine-tuning, e quando um workflow simples basta em vez de um agente.",
+    },
   },
   {
     slug: "mentalidade-growth-gestao",
@@ -196,6 +230,11 @@ export const ebooks: Ebook[] = [
       { q: "É teórico ou prático?", a: "Cada capítulo tem framework, exemplo prático e checklist — nada de teoria solta." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "growth-e-gestao-semanal",
+      description:
+        "Roteiro de revisão semanal do negócio: métricas que importam, decisões pendentes e prioridades da semana.",
+    },
   },
   {
     slug: "conteudo-carreira-digital",
@@ -222,6 +261,11 @@ export const ebooks: Ebook[] = [
       { q: "Cobre proteção legal para vender online?", a: "Sim, o capítulo de direito digital cobre o básico que todo criador/vendedor online precisa saber." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "estrategista-de-conteudo",
+      description:
+        "Gera pauta e formato de conteúdo certo pro seu objetivo (autoridade, tráfego ou venda direta), sem fórmula genérica.",
+    },
   },
   {
     slug: "design-premium-seguranca",
@@ -249,6 +293,11 @@ export const ebooks: Ebook[] = [
       { q: "Preciso ser especialista em segurança para entender?", a: "Não — a Parte 2 foi escrita para quem não é especialista, mas mantém a profundidade técnica real." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "auditor-premium-e-seguranca",
+      description:
+        "Roda o checklist de R$10 mil (design/conversão) e os pontos de segurança essenciais antes de você lançar qualquer produto.",
+    },
   },
   {
     slug: "educacao-financeira",
@@ -276,6 +325,11 @@ export const ebooks: Ebook[] = [
       { q: "Serve para quem nunca investiu nada?", a: "Sim, o livro começa do absoluto zero — organização e reserva — antes de chegar em investimentos." },
     ],
     kiwifyUrl: "#",
+    skillIncluded: {
+      name: "planejador-financeiro-pessoal",
+      description:
+        "Organiza orçamento, reserva de emergência e prioridade de investimento com base no seu perfil e objetivo, sem economês.",
+    },
   },
   {
     slug: "kit-da-primeira-oferta",

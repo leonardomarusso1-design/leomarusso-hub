@@ -6,7 +6,24 @@ FAQ e botão de compra.
 
 ## O que falta pra ficar 100% no ar
 
-### 1. Subir os PDFs na Kiwify e colar os links de checkout
+### 0. As skills que acompanham cada ebook (novo)
+
+Cada um dos 9 ebooks agora vem com uma **skill de IA** própria — um arquivo
+`SKILL.md` que faz um assistente de IA (Claude Code, Codex, ChatGPT, etc.)
+aplicar o método do livro na prática, com o leitor, em vez de só explicar.
+Isso é o que justifica cobrar mais que "só um PDF".
+
+Onde estão: pacote `skills-bundle-completo.zip` (todas as 9, mais o
+`COMO-INSTALAR.md` explicando as 3 formas de usar) e também um zip
+individual por produto (`skill-<slug>.zip`) — esse é o que você anexa como
+arquivo extra em cada produto correspondente na Kiwify, junto do PDF.
+
+O card e a página de venda de cada ebook no HUB já mostram "Inclui skill de
+IA para instalar" automaticamente (campo `skillIncluded` em
+`src/data/ebooks.ts`) — não precisa editar nada de código pra isso aparecer,
+só entregar o arquivo certo na Kiwify.
+
+### 1. Subir os PDFs (+ a skill) na Kiwify e colar os links de checkout
 
 Os arquivos `.md` dos 9 ebooks estão na pasta `conteudo-ebooks/` deste pacote.
 Antes de subir na Kiwify, cada um precisa virar PDF/EPUB diagramado (a skill
