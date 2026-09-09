@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+/* Paleta do Kit de Execução (rota /kit) — namespaced como brand-* pra não
+   colidir com as cores do resto do HUB */
+@theme {
+  --color-brand-dark: #050A14;
+  --color-brand-gray: #111827;
+  --color-brand-light: #F5F7FA;
+  --color-brand-gold: #F5B820;
+  --color-brand-cyan: #00C8E8;
+}
+
+body {
+  background: #0a0a0a;
+  color: #ededed;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+}
