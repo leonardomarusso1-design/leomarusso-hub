@@ -58,21 +58,20 @@ O que isso significa na prática:
   checklist, modelo de oferta, mensagens de WhatsApp, calculadora de preço e
   gerador de planilha Excel) está em `src/app/kit/` (`KitApp.tsx`, `data.ts`,
   `lib/excelGenerator.ts`, `lib/utils.ts`).
-- A senha da área protegida vem da variável de ambiente
-  `NEXT_PUBLIC_KIT_PASSWORD` (veja `.env.example`). Configure o valor real em
-  Vercel → Settings → Environment Variables antes do deploy, com a mesma
-  senha que a Kiwify entrega aos compradores.
+- A senha da área protegida é validada no servidor pela variável `KIT_ACCESS_PASSWORD`
+  (veja `.env.example`). Ela nunca usa o prefixo `NEXT_PUBLIC_`, portanto não é
+  enviada para o JavaScript do navegador. Configure uma senha forte em Vercel →
+  Settings → Environment Variables antes do deploy.
+- No produto do Kit, em Kiwify → Configurações → Página de obrigado, use
+  `https://leomarusso-hub.vercel.app/kit` para vendas aprovadas. O checkout e a
+  entrega da senha continuam sob responsabilidade da Kiwify.
 - O repositório antigo `github.com/leonardomarusso1-design/kit-da-primeira-oferta`
   e a pasta antiga com esse nome **não são mais necessários** — pode excluir
   os dois quando quiser, sem risco de tirar nada do ar, já que o Kit agora
   vive só aqui dentro.
-- O card do Kit já está na home do HUB (`kit-da-primeira-oferta` em
-  `src/data/ebooks.ts`, com `kind: "kit"`). O preço/link de checkout dele
-  segue o mesmo mecanismo dos ebooks — hoje `kiwifyUrl` está como `"#"`, cole
-  o link real da Kiwify quando decidir a forma de pagamento (pode ser o link
-  já existente, já que o Kit já vende na Kiwify hoje — a Kiwify continua
-  sendo o checkout e quem entrega a senha; só o app de acesso mudou de
-  endereço).
+- O card do Kit está na home do HUB (`kit-da-primeira-oferta` em
+  `src/data/ebooks.ts`, com `kind: "kit"`) e aponta para o checkout oficial
+  `https://pay.kiwify.com.br/gE9Fdv7`, atualmente em R$ 49,90.
 
 ### 3. Rodar local
 
@@ -102,7 +101,7 @@ versão com `<Image>` do Next.js — o componente está em
   checkout de cada ebook e do kit. É o único arquivo que você deve precisar
   editar no dia a dia.
 - `src/app/kit/` — código do Kit de Execução (rota `/kit`)
-- `.env.example` — variável `NEXT_PUBLIC_KIT_PASSWORD` (senha do Kit)
+- `.env.example` — variável `KIT_ACCESS_PASSWORD` (segredo server-side do Kit)
 - `src/app/page.tsx` — texto do topo (hero) da home
 - `src/components/` — Header, Footer, EbookCard
 
@@ -113,7 +112,8 @@ src/
   app/
     page.tsx                 home / grid de ebooks + kit
     ebooks/[slug]/page.tsx    página de venda de cada ebook/kit
-    kit/                      Kit de Execução (rota /kit, senha protegida)
+    api/kit/                   endpoints de autenticação e logout do Kit
+    kit/                      Kit de Execução (rota `/kit`, sessão HttpOnly)
       page.tsx
       KitApp.tsx
       data.ts
@@ -125,7 +125,10 @@ src/
 conteudo-ebooks/            os arquivos .md com o conteúdo completo de cada ebook
                              (inclui do-zero-a-primeira-oferta-v2.md, versão já
                              corrigida do ebook que já existe)
-.env.example                 NEXT_PUBLIC_KIT_PASSWORD
+ebooks-pdf/                 PDFs prontos para anexar na Kiwify
+skills/                     skills individuais e COMO-INSTALAR.md
+skills-bundle-completo.zip  pacote com as 9 skills
+.env.example                 KIT_ACCESS_PASSWORD
 ```
 
 ## Sugestão de precificação (ajuste como quiser)
@@ -141,10 +144,8 @@ conteudo-ebooks/            os arquivos .md com o conteúdo completo de cada ebo
 | Conteúdo, Carreira e Fundamentos do Jogo Digital | R$ 37 |
 | Design de Alto Padrão e Segurança | R$ 47 |
 | Educação Financeira Pessoal | R$ 37 |
-| Kit de Execução da Primeira Oferta | já vende na Kiwify hoje — use o preço/link atual |
+| Kit de Execução da Primeira Oferta | R$ 49,90 — `https://pay.kiwify.com.br/gE9Fdv7` |
 
-Se quiser vender um "Acesso Total" (bundle com os 9 ebooks), um preço-âncora
-comum é ~55-65% de desconto sobre a soma individual (~R$ 331 → bundle a
-R$ 127-147). Isso não está implementado no site ainda — é só uma sugestão de
-precificação pra quando você decidir se quer essa opção. O Kit fica fora
-desse bundle por padrão, já que tem preço e mecânica de venda próprios.
+O "Todos os Ebooks e Skills" já está destacado na home e aponta para o checkout
+`https://pay.kiwify.com.br/iH4iU6b`, com a ancoragem informada de R$ 392,97 por
+R$ 247,90. O Kit continua como produto separado, com acesso protegido.

@@ -65,7 +65,11 @@ export default async function EbookPage({
                 Comprar agora
               </a>
             )}
-            <span className="text-sm text-white/40">Acesso imediato após o pagamento</span>
+            <span className="text-sm text-white/40">
+              {ebook.kind === "kit"
+                ? "Acesso protegido pela área de membros"
+                : "Entrega pela área de membros da Kiwify"}
+            </span>
           </div>
         </section>
 

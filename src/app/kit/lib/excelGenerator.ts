@@ -93,7 +93,7 @@ function addStatusFormatting(ws: Sheet, ref: string) {
       { type: 'containsText', operator: 'containsText', text: 'Follow-up', priority: 9, style: { fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFFDE68A' } }, font: { color: { argb: 'FF92400E' } } } },
       { type: 'containsText', operator: 'containsText', text: 'Sem resposta', priority: 10, style: { fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFF1F5F9' } }, font: { color: { argb: colors.muted } } } },
     ],
-  } as any);
+  });
 }
 
 function setValidation(cell: ExcelJS.Cell, list: string) {
@@ -101,7 +101,7 @@ function setValidation(cell: ExcelJS.Cell, list: string) {
 }
 
 function metricCard(ws: Sheet, range: string, label: string, value: string | number | ExcelJS.CellFormulaValue, accent: string, format?: string) {
-  const [start, end] = range.split(':');
+  const [start] = range.split(':');
   ws.mergeCells(range);
   const cell = ws.getCell(start);
   cell.value = label;
@@ -113,7 +113,7 @@ function metricCard(ws: Sheet, range: string, label: string, value: string | num
   const valueRow = Number(start.match(/\d+/)?.[0]) + 1;
   const col = start.replace(/\d+/, '');
   const valueCell = ws.getCell(`${col}${valueRow}`);
-  valueCell.value = value as any;
+  valueCell.value = value;
   valueCell.font = { name: 'Segoe UI', size: 18, bold: true, color: { argb: accent } };
   valueCell.alignment = { horizontal: 'center', vertical: 'middle' };
   fill(valueCell, colors.cardDark);
@@ -248,11 +248,11 @@ export async function downloadSpreadsheet() {
       { type: 'expression', priority: 2, formulae: ['AND(O5<>"",O5=TODAY())'], style: { fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFFEF3C7' } }, font: { color: { argb: 'FF92400E' } } } },
       { type: 'expression', priority: 3, formulae: ['AND(O5<>"",O5>TODAY())'], style: { fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFDCFCE7' } }, font: { color: { argb: 'FF166534' } } } },
     ],
-  } as any);
+  });
   wsCRM.addConditionalFormatting({
     ref: 'K5:K500',
     rules: [{ type: 'colorScale', priority: 1, cfvo: [{ type: 'num', value: 0 }, { type: 'num', value: 5 }, { type: 'num', value: 10 }], color: [{ argb: colors.red }, { argb: colors.yellow }, { argb: colors.green }] }],
-  } as any);
+  });
 
   // 4. Follow-up
   paintArea(wsFU, 505, 11);
@@ -307,7 +307,7 @@ export async function downloadSpreadsheet() {
   wsFinance.addConditionalFormatting({
     ref: 'E8:E300',
     rules: [{ type: 'cellIs', operator: 'greaterThan', formulae: ['0'], priority: 1, style: { font: { color: { argb: 'FF166534' } } } }],
-  } as any);
+  });
   wsFinance.addConditionalFormatting({
     ref: 'H8:H300',
     rules: [
@@ -315,7 +315,7 @@ export async function downloadSpreadsheet() {
       { type: 'containsText', operator: 'containsText', text: 'Pendente', priority: 2, style: { fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFFEF3C7' } } } },
       { type: 'containsText', operator: 'containsText', text: 'Atrasado', priority: 3, style: { fill: { type: 'pattern', pattern: 'solid', bgColor: { argb: 'FFFEE2E2' } } } },
     ],
-  } as any);
+  });
 
   // 6. Serviços
   paintArea(wsServices, 40, 9);

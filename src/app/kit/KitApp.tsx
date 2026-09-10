@@ -1,102 +1,22 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Download, Copy, CheckCircle2, Circle, Menu, X, Rocket, TerminalSquare, CheckSquare, FileText, MessageSquare, Calculator, FileSpreadsheet, Lock, LogOut } from 'lucide-react';
-import { prompts as basePrompts, copyPrompts, messagesData, startHereContent } from './data';
+import React, { useState } from 'react';
+import { Download, Copy, CheckCircle2, Menu, X, Rocket, TerminalSquare, CheckSquare, FileText, MessageSquare, Calculator, FileSpreadsheet, LogOut } from 'lucide-react';
+import { prompts as basePrompts, copyPrompts, messagesData } from './data';
 const prompts = [...basePrompts, ...copyPrompts];
 import { downloadSpreadsheet } from './lib/excelGenerator';
 import { cn } from './lib/utils';
 
 type ViewMode = 'welcome' | 'prompts' | 'checklist' | 'offer' | 'messages' | 'pricing' | 'spreadsheet';
 
-function AuthScreen({ onLogin }: { onLogin: (password: string) => void }) {
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const correctPassword = process.env.NEXT_PUBLIC_KIT_PASSWORD || 'kit123';
-    
-    if (password === correctPassword) {
-      onLogin(password);
-    } else {
-      setError('Senha incorreta. Confira a senha na área de membros da Kiwify.');
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-brand-dark flex flex-col items-center justify-center p-4 selection:bg-brand-gold selection:text-brand-dark">
-      <div className="w-full max-w-md bg-gray-900 rounded-2xl shadow-2xl p-8 border border-gray-800">
-        <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Lock className="text-brand-gold w-8 h-8" />
-        </div>
-        
-        <h1 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
-          Acesso ao Kit de Execução
-        </h1>
-        <p className="text-gray-400 text-center mb-8 text-sm md:text-base leading-relaxed">
-          Digite a senha recebida na área de membros da Kiwify para acessar os materiais.
-        </p>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              Senha
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all"
-              placeholder="Digite a senha secreta"
-              required
-            />
-            {error && (
-              <p className="mt-2 text-sm text-red-400 animate-in fade-in slide-in-from-top-1">
-                {error}
-              </p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-brand-gold hover:bg-yellow-500 text-brand-dark font-bold py-3.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 uppercase tracking-wide text-sm"
-          >
-            Acessar Kit
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentView, setCurrentView] = useState<ViewMode>('welcome');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const saved = localStorage.getItem('kit_access');
-    const correctPassword = process.env.NEXT_PUBLIC_KIT_PASSWORD || 'kit123';
-    // Very simple persistence validation
-    if (saved === correctPassword) {
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  const handleLogin = (password: string) => {
-    localStorage.setItem('kit_access', password);
-    setIsAuthenticated(true);
+  const handleLogout = async () => {
+    await fetch('/api/kit/logout', { method: 'POST' });
+    window.location.reload();
   };
-
-  const handleLogout = () => {
-    localStorage.removeItem('kit_access');
-    setIsAuthenticated(false);
-  };
-
-  if (!isAuthenticated) {
-    return <AuthScreen onLogin={handleLogin} />;
-  }
 
   // Copy helper
   const copyToClipboard = (text: string) => {
@@ -243,7 +163,7 @@ function ViewWelcome({ setCurrentView }: { setCurrentView: (v: ViewMode) => void
           
           <div className="bg-gray-50 border-l-4 border-brand-gold p-5 rounded-r-lg mt-8">
             <p className="m-0 font-medium text-brand-dark italic">
-              "A clareza vem na execução real conversando com os leads locais. Feito é muito melhor que planejado por dez dias. Pegue os contatos, copie o texto e mande os primeiros 10 whatsapps."
+              &ldquo;A clareza vem na execução real conversando com os leads locais. Feito é muito melhor que planejado por dez dias. Pegue os contatos, copie o texto e mande os primeiros 10 whatsapps.&rdquo;
             </p>
           </div>
         </div>

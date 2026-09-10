@@ -338,8 +338,8 @@ export const ebooks: Ebook[] = [
     tagline: "50 prompts, mensagens prontas de WhatsApp, checklist e planilha de prospecção.",
     description:
       "A ferramenta que acompanha o ebook 'Do Zero à Primeira Oferta': uma central com 55 prompts premium (incluindo copy e autoridade), checklist de execução, modelo de oferta preenchível, mensagens de WhatsApp prontas para cada etapa da venda, modelo de precificação e uma planilha de CRM em Excel para organizar sua prospecção.",
-    price: 0,
-    priceLabel: "Ver na Kiwify",
+    price: 49.9,
+    priceLabel: "R$ 49,90",
     color: "teal",
     chapters: [
       "55 Prompts Premium (diagnóstico de oportunidades locais, criação de oferta, plaquinhas QR/NFC, fotos com IA, biosites e sites, WhatsApp, vendas, copy e autoridade)",
@@ -358,7 +358,7 @@ export const ebooks: Ebook[] = [
       { q: "É um ebook ou uma ferramenta?", a: "É uma área protegida por senha (entregue pela Kiwify após a compra), não um PDF — os prompts, mensagens e a planilha ficam acessíveis para copiar quando precisar, direto em leonardomarusso.com.br/kit." },
       { q: "Preciso ter comprado o ebook antes?", a: "Não é obrigatório, mas o kit foi desenhado como o passo seguinte de quem já aplicou os frameworks do ebook." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/gE9Fdv7",
   },
 ];
 

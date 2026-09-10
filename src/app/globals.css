@@ -1,25 +1,17 @@
 @import "tailwindcss";
 
-/* Tipografia distinta — carregada via <link> no layout (não next/font),
-   pra não depender de rede no build. Space Grotesk pro display (títulos,
-   marca), Manrope pro corpo — nenhum dos dois é Inter/Roboto/Arial. */
 @theme inline {
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 }
 
-/* Paleta "obsidiana" do HUB — restrita a 2 acentos (violeta + ciano) sobre
-   preto quase puro, com ouro reservado só pro CTA principal. */
 @theme {
   --color-obsidian: #050609;
   --color-obsidian-2: #0a0c13;
   --color-violet: #8b6bff;
   --color-cyan: #2fd9e8;
   --color-gold: #f5b820;
-
-  /* Paleta do Kit de Execução (rota /kit) — namespaced como brand-* */
   --color-brand-dark: #050a14;
   --color-brand-gray: #111827;
   --color-brand-light: #f5f7fa;
@@ -27,12 +19,10 @@
   --color-brand-cyan: #00c8e8;
 }
 
-body {
-  background: var(--color-obsidian);
-  color: #f4f4f6;
-}
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { background: var(--color-obsidian); color: #f4f4f6; }
 
-/* Textura sutil de ruído + glow radial no topo — dá profundidade sem pesar */
 .bg-hub-mesh {
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139, 107, 255, 0.16), transparent),
@@ -40,29 +30,20 @@ body {
     var(--color-obsidian);
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-}
+.glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(14px); }
 
-@keyframes pulse-node {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 1; }
-}
-.node-pulse {
-  animation: pulse-node 3.2s ease-in-out infinite;
-}
+button, a { -webkit-tap-highlight-color: transparent; }
+button:active, a:active { transform: scale(0.985); }
+
+@keyframes pulse-node { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.node-pulse { animation: pulse-node 3.2s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .node-pulse { animation: none; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
 @media print {
-  .no-print {
-    display: none !important;
-  }
-  .print-break-inside-avoid {
-    break-inside: avoid;
-  }
+  .no-print { display: none !important; }
+  .print-break-inside-avoid { break-inside: avoid; }
 }
