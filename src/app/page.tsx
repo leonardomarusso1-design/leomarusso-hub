@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import EbookCard from "@/components/EbookCard";
 import NeuralBrain from "@/components/NeuralBrain";
 import { ebooks } from "@/data/ebooks";
-import { Sparkles } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, PiggyBank, Smartphone, Sparkles } from "lucide-react";
 
 export default function HomePage() {
   const skillCount = ebooks.filter((e) => e.skillIncluded || e.kind === "kit").length;
@@ -65,6 +65,82 @@ export default function HomePage() {
             {ebooks.map((ebook) => (
               <EbookCard key={ebook.slug} ebook={ebook} />
             ))}
+          </div>
+        </section>
+
+        {/* Ferramentas: TOQY + Patrimo */}
+        <section className="border-t border-white/8 py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-10 max-w-2xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider text-white/60">
+                <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
+                Ferramentas para colocar o método no ar
+              </span>
+              <h2 className="mt-4 font-[family-name:var(--font-display)] text-2xl font-semibold text-white sm:text-3xl">
+                Quando o conhecimento vira produto, ele precisa de um lugar para funcionar.
+              </h2>
+              <p className="mt-3 text-white/55">
+                Além dos ebooks e skills, duas ferramentas próprias pra sair da
+                teoria: uma pra transformar atenção em atendimento, outra pra
+                transformar números em decisões.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {/* TOQY */}
+              <a
+                href="https://toqy.com.br/"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-white/25"
+              >
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                  <Smartphone className="h-3.5 w-3.5" /> Para negócios locais
+                </div>
+                <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl font-semibold text-white">
+                  TOQY: seu link da bio virou atendimento, catálogo e Pix.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/55">
+                  Crie um bio site profissional em minutos — com WhatsApp,
+                  localização, catálogo, Pix, QR Code e NFC em um único link.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3 text-xs text-white/60">
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-300" /> 1 bio site grátis</span>
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-300" /> Sem código</span>
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-300" /> A partir de R$ 9,90/mês</span>
+                </div>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cyan-300 group-hover:text-cyan-200">
+                  Criar meu bio site <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </a>
+
+              {/* Patrimo */}
+              <a
+                href="https://patrimo-ashy.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-white/25"
+              >
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                  <PiggyBank className="h-3.5 w-3.5" /> Para sua vida financeira
+                </div>
+                <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl font-semibold text-white">
+                  Patrimo: orçamento, reserva, metas e patrimônio no mesmo lugar.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/55">
+                  Saia da planilha espalhada e transforme seus números em uma
+                  sequência de decisões. Comece com 7 dias grátis, sem cartão.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3 text-xs text-white/60">
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="h-3.5 w-3.5 text-violet-300" /> 7 dias grátis</span>
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="h-3.5 w-3.5 text-violet-300" /> Orçamento e metas</span>
+                  <span className="inline-flex items-center gap-1"><CheckCircle2 className="h-3.5 w-3.5 text-violet-300" /> Depois R$ 97,90/ano</span>
+                </div>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-violet-300 group-hover:text-violet-200">
+                  Conhecer o Patrimo <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </a>
+            </div>
           </div>
         </section>
 

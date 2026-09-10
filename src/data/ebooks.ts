@@ -70,7 +70,7 @@ export const ebooks: Ebook[] = [
       { q: "Funciona para qualquer tipo de serviço?", a: "Sim — os frameworks são de posicionamento e venda, aplicáveis a qualquer habilidade que você já tenha." },
       { q: "Em quanto tempo consigo o primeiro cliente?", a: "O plano de execução é desenhado para 7 dias, do zero até a primeira mensagem de prospecção." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/PdCFHKs",
     skillIncluded: {
       name: "primeira-oferta-express",
       description:
@@ -103,7 +103,7 @@ export const ebooks: Ebook[] = [
       { q: "Preciso ter verba para anúncios?", a: "Não — metade do livro é sobre tráfego orgânico e canais gratuitos como WhatsApp e e-mail." },
       { q: "Serve para negócio local ou só digital?", a: "Os dois. Há exemplos práticos para negócio físico e para operação 100% online." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/DOYp7OO",
     skillIncluded: {
       name: "mapa-de-trafego",
       description:
@@ -135,7 +135,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "Preciso ser designer para aplicar?", a: "Não — o livro ensina os princípios, não ferramentas. Dá pra aplicar em qualquer editor ou até briefando um freelancer." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/cEEKxn2",
     skillIncluded: {
       name: "copy-que-converte",
       description:
@@ -165,7 +165,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "Funciona para venda por WhatsApp/direct?", a: "Sim, boa parte dos exemplos são de conversa 1 a 1, o canal mais comum no Brasil." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/yrRbRim",
     skillIncluded: {
       name: "funil-de-vendas-diagnostico",
       description:
@@ -197,7 +197,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "Preciso saber programar?", a: "Ajuda, mas não é obrigatório — o livro cobre como usar IA e ferramentas no-code/low-code para reduzir essa barreira." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/nXogzll",
     skillIncluded: {
       name: "arquiteto-de-produto-ia",
       description:
@@ -229,7 +229,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "É teórico ou prático?", a: "Cada capítulo tem framework, exemplo prático e checklist — nada de teoria solta." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/zTkqzo3",
     skillIncluded: {
       name: "growth-e-gestao-semanal",
       description:
@@ -260,7 +260,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "Cobre proteção legal para vender online?", a: "Sim, o capítulo de direito digital cobre o básico que todo criador/vendedor online precisa saber." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/kqHStHu",
     skillIncluded: {
       name: "estrategista-de-conteudo",
       description:
@@ -292,7 +292,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "Preciso ser especialista em segurança para entender?", a: "Não — a Parte 2 foi escrita para quem não é especialista, mas mantém a profundidade técnica real." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/m2Ll9Nr",
     skillIncluded: {
       name: "auditor-premium-e-seguranca",
       description:
@@ -324,7 +324,7 @@ export const ebooks: Ebook[] = [
     faq: [
       { q: "Serve para quem nunca investiu nada?", a: "Sim, o livro começa do absoluto zero — organização e reserva — antes de chegar em investimentos." },
     ],
-    kiwifyUrl: "#",
+    kiwifyUrl: "https://pay.kiwify.com.br/yS7E2RN",
     skillIncluded: {
       name: "planejador-financeiro-pessoal",
       description:
